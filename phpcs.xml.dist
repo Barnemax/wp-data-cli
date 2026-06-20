@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="WP Importer">
+    <description>WordPress VIP Go coding standards.</description>
+
+    <file>src/</file>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <config name="minimum_supported_wp_version" value="7.0"/>
+
+    <rule ref="WordPress-VIP-Go">
+        <!--
+            Exception messages are internal server-side strings, not HTML output.
+            This sniff is designed for echoed/printed output, not thrown exceptions.
+        -->
+        <exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+    </rule>
+
+    <exclude-pattern>vendor/</exclude-pattern>
+    <exclude-pattern>tests/</exclude-pattern>
+</ruleset>
